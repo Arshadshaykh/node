@@ -1,0 +1,1 @@
+hello, this is notes file and i am learning node.js
