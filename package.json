@@ -9,7 +9,7 @@
   },
   "author": "Arshad Shaikh",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "nodemon": "^3.1.0"
   }
 }
