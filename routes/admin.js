@@ -1,14 +1,16 @@
-const express=require('express');
-const router=express.Router();
+const express = require('express');
+const {
+    getNames,updateName,insertname,deleteName
+} = require('../controller/admin');
+const router = express.Router();
 
 
-router.use('/add-product', (req, res, next) => {
-    res.send('<form action="/product" method="POST"><input type="text" name="Product-name"><br><button type="submit">Add Product</button></form>');
+router.route('/names').get(getNames).post(insertname);
+router.route('/name/:id').put(updateName).delete(deleteName);
+// router.get('/names', getNames);
+// router.post('/names', insertname);
+// router.put('/name/:id', updateName);
+// router.delete('/name/:id', deleteName);
 
-});
-router.use('/product',(req,res)=>{
-    console.log(req.body)
-    res.redirect('/')
-});
 
-module.exports=router;
+module.exports = router;

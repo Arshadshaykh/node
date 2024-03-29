@@ -2,20 +2,15 @@ const http = require('http');
 
 const bodyParser=require('body-parser')
 const express = require('express');
-
+const dotenv = require('dotenv');
 const app = express();
-const adminRoutes = require('./routes/admin');
+const DB=require('./config/db')
 
-// app.use('/', (req, res, next) => {
-//     console.log('this will always run!')
-//     next();
-// });
-app.use(bodyParser.urlencoded({extended: false}));
+dotenv.config({path: './config/config.env'});
+DB();
+const logger = require('./middleware/logger');
+app.use(logger);
+app.use('/api/v1/Arshad',require("./routes/admin"));
 
-app.use(adminRoutes);
-app.use('/', (req, res, next) => {
-    res.send('<h1>you are at the Root</h1>');
-
-});
-
-app.listen(3000);
+const PORT=process.env.PORT ||5000;
+app.listen(PORT,'192.168.0.134',console.log(`Server running on PORT ${process.env.PORT}`));
