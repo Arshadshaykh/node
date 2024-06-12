@@ -16,6 +16,7 @@ app.use(logger);
 
 app.use(process.env.BASE_URL, require("./routes/adminRoute"),errorHandler);
 app.use(process.env.BASE_URL, require("./routes/user"),errorHandler);
+app.use(process.env.BASE_URL, require("./routes/task"),errorHandler);
 // app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, '192.168.0.181', console.log(`Server running on PORT ${process.env.PORT}`));
+app.listen(PORT, '192.168.0.107', console.log(`Server running on PORT ${process.env.PORT}`));

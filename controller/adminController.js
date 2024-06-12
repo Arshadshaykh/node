@@ -86,7 +86,7 @@ const deleteName = async (req, res, next) => {
         if (!bootcamp) {
             return next(new ErrorResponse(`Name not found with the ID of ${req.params.id}`, 404));
         }
-        res.status(200).json({ success: true, data: Bootcamp });
+        res.status(200).json({ success: true, data: `${bootcamp.name} has been deleted` });
     } catch (err) {
         next(err);
     }
